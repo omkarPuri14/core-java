@@ -1,24 +1,25 @@
-package progam.core;
+package progam.datatype;
 
 public class Hospital {
-	public static void main(String[] args) {
-		
-	 System.out.println("Hospital name:-"+"Accord");
-	 System.out.println("Addrese:-"+"Shanti Nager Colleny Bhosari Pune 39");
-	 System.out.println("Hospital Mobile NO:-"+354256456);
-	 System.out.println("total stafe members work in Hospital:-"+320);
-	 System.out.println("total male stafe workers in Hospital:-"+120);
-	 System.out.println("total female stafe workers in Hospital:-"+200);
-	 
+public static void main(String[] args) {
 	
+	String hospitalName="rada";
+    String address="bhoari piune 39";
+    int maxPatientCapacity=500;
+    int currentPatients=345;
+    int staffCount=56;
+    boolean isEmergencyActive=true;
+    double starRating=4.56;
+    
+    System.out.println("--- Hospital Management System ---");
+    System.out.println("Hospital Name: " + hospitalName);
+    System.out.println("Address: " + address);
+    System.out.println("Max Capacity: " + maxPatientCapacity);
+    System.out.println("Current Patients: " + currentPatients);
+    System.out.println("Staff Count: " + staffCount);
+    System.out.println("Emergency Status Active: " + isEmergencyActive);
+    System.out.println("Rating: "+ starRating + " stars");
 
-
-	 
-
-	 
-
-
-	 
-	}
-
+	
+}
 }
