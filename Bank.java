@@ -1,25 +1,27 @@
-package progam.datatype;
+package progam.varibles;
 
 public class Bank {
+	static String bank_Name="Kotak";
+	static String custmer_Name="saloni";
+	static long account_No=6762777787272l;
+	static double account_blance=-32458.9988;
+	static long credit_Card_NO;
+	static long cheque_Book_NO;
+	static String nominee_Name;
+	
 	public static void main(String[] args) {
 		
-	
-	String custmor_name="varun";
-	long custmore_Account_no=23445615255256l;
-	double account_blance=45090.449;
-	double deposite_Amount=5000;
-	double total_Amount=account_blance+deposite_Amount;
-	
-	System.out.println("Custmore name:- "+custmor_name);
-	System.out.println("Custmore account number:- "+custmore_Account_no);
-	System.out.println("account blance:- "+account_blance);
-	System.out.println("account blance "+account_blance+" deposite amount "+deposite_Amount+" total amount "+total_Amount);
-	
-	double withdraw_amount=40000;
-	double remanining_amount=total_Amount-withdraw_amount;
-	System.out.println("total amount in account "+total_Amount+" withdraw amount form account "+withdraw_amount+"  remaining amonut in account "+remanining_amount);
+		System.out.println("Bank Name:- "+bank_Name);
+		System.out.println("Custmer Name:- "+custmer_Name);
+		System.out.println("Account No:- "+account_No);
+		System.out.println("Account Balance:- "+account_blance);
+		System.out.println("Credit Card No:- "+credit_Card_NO);
+		System.out.println("Cheque Book No:- "+cheque_Book_NO);
+		System.out.println("Nominee Name:-"+nominee_Name);
 
-
-	
+		
 	}
+
+	
+
 }
