@@ -3,7 +3,7 @@ package program.operater;
 public class Increment_Decrement_Operator {
 public static void main(String[] args) {
 	int i =90;
-	i++;
+	i++; // i value is 91
 	int j =i+9;// value of jn is 100 
 	System.out.println(i++);//i is 91 for printing and the value increment by one 92
 	
@@ -52,3 +52,4 @@ public static void main(String[] args) {
 }
 
 }
+
