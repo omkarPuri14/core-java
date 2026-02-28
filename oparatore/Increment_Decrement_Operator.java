@@ -20,7 +20,7 @@ public static void main(String[] args) {
 	System.out.println("-----------------");
 	
 	++i;//value of i then is 91 after pre increment now i value is 92
-	System.out.println(j+3);// then j value is 99 now j value is 102 its print 101 value
+	System.out.println(j+3);// then j value is 99 now j value is 102 its print 102 value
 
 	j--; // before value of j is 99 after post decrement j value is 98
 	++j;// before value of is 98 after pre increment j value is 99
@@ -52,4 +52,5 @@ public static void main(String[] args) {
 }
 
 }
+
 
