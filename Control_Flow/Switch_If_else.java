@@ -343,6 +343,8 @@ public class Switch_If_else {
 //			password="abdrt456";
 //			System.out.println("strong password "+password);
 //			break;
+		// default:
+		// 	System.out.println(somting is worng);
 //			
 //			
 //		
@@ -354,3 +356,4 @@ public class Switch_If_else {
 		}
 
 }
+
