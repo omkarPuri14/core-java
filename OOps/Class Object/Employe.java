@@ -2,10 +2,11 @@ package com.object;
 
 public class Employe {
 
-//Q2. Create a class Employee
-//Variables → id, name, salary
+//	Create a class Employee:
+//		id, salary
+//		Use if-else to check if salary > 50,000 → print "High Salary".
 	int empId;
-	String name;
+	
 	double salary;
 
 }
