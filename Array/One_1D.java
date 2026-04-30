@@ -116,9 +116,9 @@ public class One_1D {
 //			}
 //
 //		}
-		
+
 		// 14 Write a program to find duplicate elements in a 1D array.
-		
+
 //		int[] num = { 10, 20, 20,45,45, 86, 34, 95 };
 //		
 //		 for(int i = 0; i < num.length; i++) {
@@ -129,61 +129,111 @@ public class One_1D {
 //	                }
 //	            }
 //	        }
-		
-		//15 Write a program to remove duplicate elements from a 1D array.
-		
-		
-		// 16
-		
-		//17 Write a program to find the second largest element in a 1D array
-		
+
+		// 15 Write a program to remove duplicate elements from a 1D array.
+
+//		int[] arr = { 1, 2, 2, 3, 4, 4, 5 };
+//		int n = arr.length;
+//
+//		int[] temp = new int[n];
+//		int j = 0;
+//
+//		for (int i = 0; i < n - 1; i++) {
+//			if (arr[i] != arr[i + 1]) {
+//				temp[j++] = arr[i];
+//			}
+//		}
+//		temp[j++] = arr[n - 1]; 
+//
+//		
+//		for (int i = 0; i < j; i++) {
+//			System.out.print(temp[i] + " ");
+//		}
+
+		// 16 Write a program to count frequency of each element in a 1D array
+
+//		int []arr= {1,2,2,3,3,3,5,4,3,2,1,1,};
+//		for(int i = 0; i < arr.length; i++) {
+//		    
+//		    int count = 1;
+//		    for(int j = i + 1; j < arr.length; j++) {
+//		        if(arr[i] == arr[j]) {
+//		            count++;
+//		           
+//		        }
+//		    }
+//		    System.out.println(arr[i] + " occurs " + count + " times");
+//		}
+
+		// 17 Write a program to find the second largest element in a 1D array
+
 //		int[] num = { 10, 20, 45, 86, 34, 95 };
 //		Arrays.sort(num);
 //	
 //		int scelar=num[num.length-2];
 //		System.out.println(scelar);
-		
+
 		// 18 Write a program to find the second smallest element in a 1D array.
 //		int[] num = { 10, 20, 45, 86, 34, 95 };
 //		Arrays.sort(num);
 //		
 //		int secsmall=num[1];
 //		System.out.println(secsmall);
-		
-		//19 Write a program to merge two 1D arrays.
-		
-//		int [] num= {23,45,56,6};
-//		int [] num2= {6,4,5,7};
-		
+
+		// 19 Write a program to merge two 1D arrays.
+
+//		        int[] array1 = {1, 2, 3};
+//		        int[] array2 = {4, 5, 6};
+//
+//		        
+//		        int length1 = array1.length;
+//		        int length2 = array2.length;
+//		        int[] mergedArray = new int[length1 + length2];
+//
+//		       
+//		        for (int i = 0; i < length1; i++) {
+//		            mergedArray[i] = array1[i];
+//		        }
+//
+//		      
+//		        for (int i = 0; i < length2; i++) {
+//		            mergedArray[length1 + i] = array2[i];
+//		        }
+//
+//		       
+//		        System.out.println("Merged Array: " + Arrays.toString(mergedArray));
+
 		// 20 Write a program to check whether a 1D array is a palindrome.
-		
-		
-		
-		
-		
-		
-		
 
+//	int[] num = { 141, 3, 5, 86, 434, 95 };
+//		
+//		
+//		for(int i=0;i<num.length;i++) {
+//			int target=num[i];
+//            int temp = target;
+//            int reversedNum = 0;
+//
+//          
+//            while (temp > 0) {
+//                int reminder = temp % 10;
+//                reversedNum = reversedNum * 10 + reminder;
+//                temp = temp / 10;
+//            }
+//
+//           
+//            if (target == reversedNum) { 
+//                System.out.println(target+ " is a palindrome");
+//            }
+//			
+//			
+//		
+//		}
 
 		
 		
-
 		
 		
 		
-		
-		
-		
-	                
-	            
-	            
-	            
-	        
-		
-		
-		
-		
-
 
 	}
 }
