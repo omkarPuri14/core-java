@@ -1,0 +1,31 @@
+reate table bank(accId int PRIMARY KEY,accNO bigint NOT NULL,accHolder_Name varchar (50),accType varchar(40),blance float,branchCd varchar(30),intrst_Rate float,bank_location varchar(30),bank_icD int,bank_name varchar(40));
+
+
+insert into bank(accId,accNO,accHolder_Name,accType,blance,branchCd,intrst_Rate,bank_location,bank_icD,bank_name)values(1234,3456,'omkar','saving',20000,'45',7.5,'pune',678,'idfc'),(1235,3457,'ram','saving',60000,'45',7.5,'pune',678,'idfc');
+
+
+select * from bank;
++-------+-------+----------------+---------+--------+----------+-------------+---------------+----------+-----------+
+| accId | accNO | accHolder_Name | accType | blance | branchCd | intrst_Rate | bank_location | bank_icD | bank_name |
++-------+-------+----------------+---------+--------+----------+-------------+---------------+----------+-----------+
+|  1234 |  3456 | omkar          | saving  |  20000 | 45       |         7.5 | pune          |      678 | idfc      |
+|  1235 |  3457 | ram            | saving  |  60000 | 45       |         7.5 | pune          |      678 | idfc      |
++-------+-------+----------------+---------+--------+----------+-------------+---------------+----------+-----------+
+
+
+select * from bank where accId=1234 AND name='omkar';
+ERROR 1054 (42S22): Unknown column 'name' in 'where clause'
+mysql> select * from bank where accId=1234 AND accHolder_Name='omkar';
++-------+-------+----------------+---------+--------+----------+-------------+---------------+----------+-----------+
+| accId | accNO | accHolder_Name | accType | blance | branchCd | intrst_Rate | bank_location | bank_icD | bank_name |
++-------+-------+----------------+---------+--------+----------+-------------+---------------+----------+-----------+
+|  1234 |  3456 | omkar          | saving  |  20000 | 45       |         7.5 | pune          |      678 | idfc      |
++-------+-------+----------------+---------+--------+----------+-------------+---------------+----------+-----------+
+
+
+select * from bank where NOT blance=20000;
++-------+-------+----------------+---------+--------+----------+-------------+---------------+----------+-----------+
+| accId | accNO | accHolder_Name | accType | blance | branchCd | intrst_Rate | bank_location | bank_icD | bank_name |
++-------+-------+----------------+---------+--------+----------+-------------+---------------+----------+-----------+
+|  1235 |  3457 | ram            | saving  |  60000 | 45       |         7.5 | pune          |      678 | idfc      |
++-------+-------+----------------+---------+--------+----------+-------------+---------------+----------+-----------+
