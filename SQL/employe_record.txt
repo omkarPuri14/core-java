@@ -1,0 +1,66 @@
+create table employe(emp_Id int primary key, name varchar(50),city varchar(60),salary double,mobile_No bigint,email varchar(60) not null,emp_position varchar(70),emp_acc_No int not null,acc_type varchar(50),gender varchar(10) not null,office_location varchar (40),maneger_id int,maneger_name varchar(50),branchId int, barnch_no int);
+
+
+ desc employe;
++-----------------+-------------+------+-----+---------+-------+
+| Field           | Type        | Null | Key | Default | Extra |
++-----------------+-------------+------+-----+---------+-------+
+| emp_Id          | int         | NO   | PRI | NULL    |       |
+| name            | varchar(50) | YES  |     | NULL    |       |
+| city            | varchar(60) | YES  |     | NULL    |       |
+| salary          | double      | YES  |     | NULL    |       |
+| mobile_No       | bigint      | YES  |     | NULL    |       |
+| email           | varchar(60) | NO   |     | NULL    |       |
+| emp_position    | varchar(70) | YES  |     | NULL    |       |
+| emp_acc_No      | int         | NO   |     | NULL    |       |
+| acc_type        | varchar(50) | YES  |     | NULL    |       |
+| gender          | varchar(10) | NO   |     | NULL    |       |
+| office_location | varchar(40) | YES  |     | NULL    |       |
+| maneger_id      | int         | YES  |     | NULL    |       |
+| maneger_name    | varchar(50) | YES  |     | NULL    |       |
+| branchId        | int         | YES  |     | NULL    |       |
+| barnch_no       | int         | YES  |     | NULL    |       |
++-----------------+-------------+------+-----+---------+-------+
+
+
+insert into employe(emp_id,name,city,salary,mobile_no,email,emp_position,emp_acc_no,acc_type,gender,office_location,maneger_id,maneger_name,branchid,barnch_no)values(1,'omkar','pune',45000,8768453720,'omkar@gmail.com','web deloper',12345,'salary acc','male','pune',1256,'suresha',4567,4),(4,'radhika','nks',95000,8768449720,'radhika@gmail.com','tech',90345,'saving acc','female','pune',1256,'suresha',4567,4),(3,'ramu','khadaki',65000,8768493725,'ramu@gmail.com','software tester',62345,'saving acc','male','pune',1256,'suresha',4567,4),(2,'saloni','pune',40000,8768455720,'saloni@gmail.com','software delovper',52345,'salary acc','female','pune',1256,'suresha',4567,4);
+
+
+select * from employe;
++--------+---------+---------+--------+------------+-------------------+-------------------+------------+------------+--------+-----------------+------------+--------------+----------+-----------+
+| emp_Id | name    | city    | salary | mobile_No  | email             | emp_position      | emp_acc_No | acc_type   | gender | office_location | maneger_id | maneger_name | branchId | barnch_no |
++--------+---------+---------+--------+------------+-------------------+-------------------+------------+------------+--------+-----------------+------------+--------------+----------+-----------+
+|      1 | omkar   | pune    |  45000 | 8768453720 | omkar@gmail.com   | web deloper       |      12345 | salary acc | male   | pune            |       1256 | suresha      |     4567 |         4 |
+|      2 | saloni  | pune    |  40000 | 8768455720 | saloni@gmail.com  | software delovper |      52345 | salary acc | female | pune            |       1256 | suresha      |     4567 |         4 |
+|      3 | ramu    | khadaki |  65000 | 8768493725 | ramu@gmail.com    | software tester   |      62345 | saving acc | male   | pune            |       1256 | suresha      |     4567 |         4 |
+|      4 | radhika | nks     |  95000 | 8768449720 | radhika@gmail.com | tech              |      90345 | saving acc | female | pune            |       1256 | suresha      |     4567 |         4 |
++--------+---------+---------+--------+------------+-------------------+-------------------+------------+------------+--------+-----------------+------------+--------------+----------+-----------+
+
+
+update employe set city = "nks" where emp_id=1;
+
+ows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from employe;
++--------+---------+---------+--------+------------+-------------------+-------------------+------------+------------+--------+-----------------+------------+--------------+----------+-----------+
+| emp_Id | name    | city    | salary | mobile_No  | email             | emp_position      | emp_acc_No | acc_type   | gender | office_location | maneger_id | maneger_name | branchId | barnch_no |
++--------+---------+---------+--------+------------+-------------------+-------------------+------------+------------+--------+-----------------+------------+--------------+----------+-----------+
+|      1 | omkar   | nks     |  45000 | 8768453720 | omkar@gmail.com   | web deloper       |      12345 | salary acc | male   | pune            |       1256 | suresha      |     4567 |         4 |
+|      2 | saloni  | pune    |  40000 | 8768455720 | saloni@gmail.com  | software delovper |      52345 | salary acc | female | pune            |       1256 | suresha      |     4567 |         4 |
+|      3 | ramu    | khadaki |  65000 | 8768493725 | ramu@gmail.com    | software tester   |      62345 | saving acc | male   | pune            |       1256 | suresha      |     4567 |         4 |
+|      4 | radhika | nks     |  95000 | 8768449720 | radhika@gmail.com | tech              |      90345 | saving acc | female | pune            |       1256 | suresha      |     4567 |         4 |
++--------+---------+---------+--------+------------+-------------------+-------------------+------------+------------+--------+-----------------+------------+--------------+----------+-----------+
+
+delete from employe where emp_id=4;
+
+mysql> select * from employe;
++--------+--------+---------+--------+------------+------------------+-------------------+------------+------------+--------+-----------------+------------+--------------+----------+-----------+
+| emp_Id | name   | city    | salary | mobile_No  | email            | emp_position      | emp_acc_No | acc_type   | gender | office_location | maneger_id | maneger_name | branchId | barnch_no |
++--------+--------+---------+--------+------------+------------------+-------------------+------------+------------+--------+-----------------+------------+--------------+----------+-----------+
+|      1 | omkar  | nks     |  45000 | 8768453720 | omkar@gmail.com  | web deloper       |      12345 | salary acc | male   | pune            |       1256 | suresha      |     4567 |         4 |
+|      2 | saloni | pune    |  40000 | 8768455720 | saloni@gmail.com | software delovper |      52345 | salary acc | female | pune            |       1256 | suresha      |     4567 |         4 |
+|      3 | ramu   | khadaki |  65000 | 8768493725 | ramu@gmail.com   | software tester   |      62345 | saving acc | male   | pune            |       1256 | suresha      |     4567 |         4 |
++--------+--------+---------+--------+------------+------------------+-------------------+------------+------------+--------+-----------------+------------+--------------+----------+-----------+
+
+
+
