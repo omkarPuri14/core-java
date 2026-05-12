@@ -1,0 +1,224 @@
+create table order_S(oderID int auto_increment primary key,custName varchar(50),city varchar(60),prodName varchar(50),category varchar(40),price double, quantity int,order_Date date,payMod varchar(40),status varchar(50));
+
+
+mysql> desc order_S;
++------------+-------------+------+-----+---------+----------------+
+| Field      | Type        | Null | Key | Default | Extra          |
++------------+-------------+------+-----+---------+----------------+
+| oderID     | int         | NO   | PRI | NULL    | auto_increment |
+| custName   | varchar(50) | YES  |     | NULL    |                |
+| city       | varchar(60) | YES  |     | NULL    |                |
+| prodName   | varchar(50) | YES  |     | NULL    |                |
+| category   | varchar(40) | YES  |     | NULL    |                |
+| price      | double      | YES  |     | NULL    |                |
+| quantity   | int         | YES  |     | NULL    |                |
+| order_Date | date        | YES  |     | NULL    |                |
+| payMod     | varchar(40) | YES  |     | NULL    |                |
+| status     | varchar(50) | YES  |     | NULL    |                |
++------------+-------------+------+-----+---------+----------------+
+
+
+insert into order_S(custName,city,prodName,category,price,quantity,order_Date,payMod,status)values('arjun','pune','phone','electronic',15000,1,'2026-01-13','gpay','delivered'),values('arjun','pune','t-shrit','clothing',1500,5,'2026-03-14','upi','not delivered'),('omkar','baner','table','furniture',7500,3,'2026-01-17','phone pay','delivered'),('radhika','nks','phone','electronic',75000,2,'2026-01-18','upi','not delivered'),('rameh','pune','trouser','clothing',2500,4,'2026-03-17','upi','not delivered'),('amruta','mumbai','chair','furniture',900,7,'2026-05-16','phone pay','delivered'),('saloni','pimpri','tv','electronic',55000,3,'2026-02-20','upi','not delivered'),('rameh','pune','shrewani','clothing',5500,4,'2026-03-17','upi','not delivered'),('samar','mumbai','sofa','furniture',9000,7,'2026-01-16','phone pay','delivered'),('samraat','pimpri','washing machince','electronic',17000,3,'2026-02-22','upi','not delivered');
+
+mysql> select * from order_S;
++--------+----------+--------+------------------+------------+-------+----------+------------+-----------+---------------+
+| oderID | custName | city   | prodName         | category   | price | quantity | order_Date | payMod    | status        |
++--------+----------+--------+------------------+------------+-------+----------+------------+-----------+---------------+
+|      1 | arjun    | pune   | phone            | electronic | 15000 |        1 | 2026-01-13 | gpay      | delivered     |
+|      2 | arjun    | pune   | t-shrit          | clothing   |  1500 |        5 | 2026-03-14 | upi       | not delivered |
+|      3 | omkar    | baner  | table            | furniture  |  7500 |        3 | 2026-01-17 | phone pay | delivered     |
+|      4 | radhika  | nks    | phone            | electronic | 75000 |        2 | 2026-01-18 | upi       | not delivered |
+|      5 | rameh    | pune   | trouser          | clothing   |  2500 |        4 | 2026-03-17 | upi       | not delivered |
+|      6 | amruta   | mumbai | chair            | furniture  |   900 |        7 | 2026-05-16 | phone pay | delivered     |
+|      7 | saloni   | pimpri | tv               | electronic | 55000 |        3 | 2026-02-20 | upi       | not delivered |
+|      8 | rameh    | pune   | shrewani         | clothing   |  5500 |        4 | 2026-03-17 | upi       | not delivered |
+|      9 | samar    | mumbai | sofa             | furniture  |  9000 |        7 | 2026-01-16 | phone pay | delivered     |
+|     10 | samraat  | pimpri | washing machince | electronic | 17000 |        3 | 2026-02-22 | upi       | not delivered |
++--------+----------+--------+------------------+------------+-------+----------+------------+-----------+---------------+
+
+
+mysql> select * from order_S where city='pune';
++--------+----------+------+----------+------------+-------+----------+------------+--------+---------------+
+| oderID | custName | city | prodName | category   | price | quantity | order_Date | payMod | status        |
++--------+----------+------+----------+------------+-------+----------+------------+--------+---------------+
+|      1 | arjun    | pune | phone    | electronic | 15000 |        1 | 2026-01-13 | gpay   | delivered     |
+|      2 | arjun    | pune | t-shrit  | clothing   |  1500 |        5 | 2026-03-14 | upi    | not delivered |
+|      5 | rameh    | pune | trouser  | clothing   |  2500 |        4 | 2026-03-17 | upi    | not delivered |
+|      8 | rameh    | pune | shrewani | clothing   |  5500 |        4 | 2026-03-17 | upi    | not delivered |
++--------+----------+------+----------+------------+-------+----------+------------+--------+---------------+
+
+
+mysql> select * from order_S where price>5000;
++--------+----------+--------+------------------+------------+-------+----------+------------+-----------+---------------+
+| oderID | custName | city   | prodName         | category   | price | quantity | order_Date | payMod    | status        |
++--------+----------+--------+------------------+------------+-------+----------+------------+-----------+---------------+
+|      1 | arjun    | pune   | phone            | electronic | 15000 |        1 | 2026-01-13 | gpay      | delivered     |
+|      3 | omkar    | baner  | table            | furniture  |  7500 |        3 | 2026-01-17 | phone pay | delivered     |
+|      4 | radhika  | nks    | phone            | electronic | 75000 |        2 | 2026-01-18 | upi       | not delivered |
+|      7 | saloni   | pimpri | tv               | electronic | 55000 |        3 | 2026-02-20 | upi       | not delivered |
+|      8 | rameh    | pune   | shrewani         | clothing   |  5500 |        4 | 2026-03-17 | upi       | not delivered |
+|      9 | samar    | mumbai | sofa             | furniture  |  9000 |        7 | 2026-01-16 | phone pay | delivered     |
+|     10 | samraat  | pimpri | washing machince | electronic | 17000 |        3 | 2026-02-22 | upi       | not delivered |
++--------+----------+--------+------------------+------------+-------+----------+------------+-----------+---------------+
+
+
+mysql> select * from  order_s where payMod='upi';
++--------+----------+--------+------------------+------------+-------+----------+------------+--------+---------------+
+| oderID | custName | city   | prodName         | category   | price | quantity | order_Date | payMod | status        |
++--------+----------+--------+------------------+------------+-------+----------+------------+--------+---------------+
+|      2 | arjun    | pune   | t-shrit          | clothing   |  1500 |        5 | 2026-03-14 | upi    | not delivered |
+|      4 | radhika  | nks    | phone            | electronic | 75000 |        2 | 2026-01-18 | upi    | not delivered |
+|      5 | rameh    | pune   | trouser          | clothing   |  2500 |        4 | 2026-03-17 | upi    | not delivered |
+|      7 | saloni   | pimpri | tv               | electronic | 55000 |        3 | 2026-02-20 | upi    | not delivered |
+|      8 | rameh    | pune   | shrewani         | clothing   |  5500 |        4 | 2026-03-17 | upi    | not delivered |
+|     10 | samraat  | pimpri | washing machince | electronic | 17000 |        3 | 2026-02-22 | upi    | not delivered |
++--------+----------+--------+------------------+------------+-------+----------+------------+--------+---------------+
+
+
+mysql> select * from  order_s where status='delivered';
++--------+----------+--------+----------+------------+-------+----------+------------+-----------+-----------+
+| oderID | custName | city   | prodName | category   | price | quantity | order_Date | payMod    | status    |
++--------+----------+--------+----------+------------+-------+----------+------------+-----------+-----------+
+|      1 | arjun    | pune   | phone    | electronic | 15000 |        1 | 2026-01-13 | gpay      | delivered |
+|      3 | omkar    | baner  | table    | furniture  |  7500 |        3 | 2026-01-17 | phone pay | delivered |
+|      6 | amruta   | mumbai | chair    | furniture  |   900 |        7 | 2026-05-16 | phone pay | delivered |
+|      9 | samar    | mumbai | sofa     | furniture  |  9000 |        7 | 2026-01-16 | phone pay | delivered |
++--------+----------+--------+----------+------------+-------+----------+------------+-----------+-----------+
+
+
+mysql> select * from  order_s where quantity between 2 and 5;
++--------+----------+--------+------------------+------------+-------+----------+------------+-----------+---------------+
+| oderID | custName | city   | prodName         | category   | price | quantity | order_Date | payMod    | status        |
++--------+----------+--------+------------------+------------+-------+----------+------------+-----------+---------------+
+|      2 | arjun    | pune   | t-shrit          | clothing   |  1500 |        5 | 2026-03-14 | upi       | not delivered |
+|      3 | omkar    | baner  | table            | furniture  |  7500 |        3 | 2026-01-17 | phone pay | delivered     |
+|      4 | radhika  | nks    | phone            | electronic | 75000 |        2 | 2026-01-18 | upi       | not delivered |
+|      5 | rameh    | pune   | trouser          | clothing   |  2500 |        4 | 2026-03-17 | upi       | not delivered |
+|      7 | saloni   | pimpri | tv               | electronic | 55000 |        3 | 2026-02-20 | upi       | not delivered |
+|      8 | rameh    | pune   | shrewani         | clothing   |  5500 |        4 | 2026-03-17 | upi       | not delivered |
+|     10 | samraat  | pimpri | washing machince | electronic | 17000 |        3 | 2026-02-22 | upi       | not delivered |
++--------+----------+--------+------------------+------------+-------+----------+------------+-----------+---------------+
+
+
+mysql> select * from  order_s where category in ('electronic','clothing');
++--------+----------+--------+------------------+------------+-------+----------+------------+--------+---------------+
+| oderID | custName | city   | prodName         | category   | price | quantity | order_Date | payMod | status        |
++--------+----------+--------+------------------+------------+-------+----------+------------+--------+---------------+
+|      1 | arjun    | pune   | phone            | electronic | 15000 |        1 | 2026-01-13 | gpay   | delivered     |
+|      2 | arjun    | pune   | t-shrit          | clothing   |  1500 |        5 | 2026-03-14 | upi    | not delivered |
+|      4 | radhika  | nks    | phone            | electronic | 75000 |        2 | 2026-01-18 | upi    | not delivered |
+|      5 | rameh    | pune   | trouser          | clothing   |  2500 |        4 | 2026-03-17 | upi    | not delivered |
+|      7 | saloni   | pimpri | tv               | electronic | 55000 |        3 | 2026-02-20 | upi    | not delivered |
+|      8 | rameh    | pune   | shrewani         | clothing   |  5500 |        4 | 2026-03-17 | upi    | not delivered |
+|     10 | samraat  | pimpri | washing machince | electronic | 17000 |        3 | 2026-02-22 | upi    | not delivered |
++--------+----------+--------+------------------+------------+-------+----------+------------+--------+---------------+
+
+
+mysql> select * from  order_s where custname like 'a%';
++--------+----------+--------+----------+------------+-------+----------+------------+-----------+---------------+
+| oderID | custName | city   | prodName | category   | price | quantity | order_Date | payMod    | status        |
++--------+----------+--------+----------+------------+-------+----------+------------+-----------+---------------+
+|      1 | arjun    | pune   | phone    | electronic | 15000 |        1 | 2026-01-13 | gpay      | delivered     |
+|      2 | arjun    | pune   | t-shrit  | clothing   |  1500 |        5 | 2026-03-14 | upi       | not delivered |
+|      6 | amruta   | mumbai | chair    | furniture  |   900 |        7 | 2026-05-16 | phone pay | delivered     |
++--------+----------+--------+----------+------------+-------+----------+------------+-----------+---------------+
+
+
+mysql> select * from  order_s where prodName in ('phone');
++--------+----------+------+----------+------------+-------+----------+------------+--------+---------------+
+| oderID | custName | city | prodName | category   | price | quantity | order_Date | payMod | status        |
++--------+----------+------+----------+------------+-------+----------+------------+--------+---------------+
+|      1 | arjun    | pune | phone    | electronic | 15000 |        1 | 2026-01-13 | gpay   | delivered     |
+|      4 | radhika  | nks  | phone    | electronic | 75000 |        2 | 2026-01-18 | upi    | not delivered |
++--------+----------+------+----------+------------+-------+----------+------------+--------+---------------+
+
+
+mysql> select * from  order_s order by price DESC;
++--------+----------+--------+------------------+------------+-------+----------+------------+-----------+---------------+
+| oderID | custName | city   | prodName         | category   | price | quantity | order_Date | payMod    | status        |
++--------+----------+--------+------------------+------------+-------+----------+------------+-----------+---------------+
+|      4 | radhika  | nks    | phone            | electronic | 75000 |        2 | 2026-01-18 | upi       | not delivered |
+|      7 | saloni   | pimpri | tv               | electronic | 55000 |        3 | 2026-02-20 | upi       | not delivered |
+|     10 | samraat  | pimpri | washing machince | electronic | 17000 |        3 | 2026-02-22 | upi       | not delivered |
+|      1 | arjun    | pune   | phone            | electronic | 15000 |        1 | 2026-01-13 | gpay      | delivered     |
+|      9 | samar    | mumbai | sofa             | furniture  |  9000 |        7 | 2026-01-16 | phone pay | delivered     |
+|      3 | omkar    | baner  | table            | furniture  |  7500 |        3 | 2026-01-17 | phone pay | delivered     |
+|      8 | rameh    | pune   | shrewani         | clothing   |  5500 |        4 | 2026-03-17 | upi       | not delivered |
+|      5 | rameh    | pune   | trouser          | clothing   |  2500 |        4 | 2026-03-17 | upi       | not delivered |
+|      2 | arjun    | pune   | t-shrit          | clothing   |  1500 |        5 | 2026-03-14 | upi       | not delivered |
+|      6 | amruta   | mumbai | chair            | furniture  |   900 |        7 | 2026-05-16 | phone pay | delivered     |
++--------+----------+--------+------------------+------------+-------+----------+------------+-----------+---------------+
+
+
+select * from  order_s order by order_Date DESC;
++--------+----------+--------+------------------+------------+-------+----------+------------+-----------+---------------+
+| oderID | custName | city   | prodName         | category   | price | quantity | order_Date | payMod    | status        |
++--------+----------+--------+------------------+------------+-------+----------+------------+-----------+---------------+
+|      6 | amruta   | mumbai | chair            | furniture  |   900 |        7 | 2026-05-16 | phone pay | delivered     |
+|      5 | rameh    | pune   | trouser          | clothing   |  2500 |        4 | 2026-03-17 | upi       | not delivered |
+|      8 | rameh    | pune   | shrewani         | clothing   |  5500 |        4 | 2026-03-17 | upi       | not delivered |
+|      2 | arjun    | pune   | t-shrit          | clothing   |  1500 |        5 | 2026-03-14 | upi       | not delivered |
+|     10 | samraat  | pimpri | washing machince | electronic | 17000 |        3 | 2026-02-22 | upi       | not delivered |
+|      7 | saloni   | pimpri | tv               | electronic | 55000 |        3 | 2026-02-20 | upi       | not delivered |
+|      4 | radhika  | nks    | phone            | electronic | 75000 |        2 | 2026-01-18 | upi       | not delivered |
+|      3 | omkar    | baner  | table            | furniture  |  7500 |        3 | 2026-01-17 | phone pay | delivered     |
+|      9 | samar    | mumbai | sofa             | furniture  |  9000 |        7 | 2026-01-16 | phone pay | delivered     |
+|      1 | arjun    | pune   | phone            | electronic | 15000 |        1 | 2026-01-13 | gpay      | delivered     |
++--------+----------+--------+------------------+------------+-------+----------+------------+-----------+---------------+
+
+
+mysql> select sum(price*quantity) from order_s;
++---------------------+
+| sum(price*quantity) |
++---------------------+
+|              512300 |
++---------------------+
+
+
+mysql> select avg(price) from order_s;
++------------+
+| avg(price) |
++------------+
+|      18890 |
++------------+
+
+
+mysql> select count(oderID) from order_s;
++---------------+
+| count(oderID) |
++---------------+
+|            10 |
++---------------+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
