@@ -1,0 +1,146 @@
+mysql>  create table employee(id int auto_increment primary key,name varchar(50),profile varchar(50),email varchar(50),salary double ,age int,experience int);
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> desc employee;
++------------+-------------+------+-----+---------+----------------+
+| Field      | Type        | Null | Key | Default | Extra          |
++------------+-------------+------+-----+---------+----------------+
+| id         | int         | NO   | PRI | NULL    | auto_increment |
+| name       | varchar(50) | YES  |     | NULL    |                |
+| profile    | varchar(50) | YES  |     | NULL    |                |
+| email      | varchar(50) | YES  |     | NULL    |                |
+| salary     | double      | YES  |     | NULL    |                |
+| age        | int         | YES  |     | NULL    |                |
+| experience | int         | YES  |     | NULL    |                |
++------------+-------------+------+-----+---------+----------------+
+7 rows in set (0.00 sec)
+
+mysql> insert into employee(name,profile,email,salary,age,experience)values('rani','dev','rani@gmail.com',11000,43,27),('raj','test','raj@gmail.com',21000,33,17),('radha','test','radha@gmail.com',26000,38,21),('raj','dev','raj12@gmail.com',51000,32,12),('john','dev','john@gmail.com',51000,39,27);
+Query OK, 5 rows affected (0.01 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> select * from employee;
++----+-------+---------+-----------------+--------+------+------------+
+| id | name  | profile | email           | salary | age  | experience |
++----+-------+---------+-----------------+--------+------+------------+
+|  1 | rani  | dev     | rani@gmail.com  |  11000 |   43 |         27 |
+|  2 | raj   | test    | raj@gmail.com   |  21000 |   33 |         17 |
+|  3 | radha | test    | radha@gmail.com |  26000 |   38 |         21 |
+|  4 | raj   | dev     | raj12@gmail.com |  51000 |   32 |         12 |
+|  5 | john  | dev     | john@gmail.com  |  51000 |   39 |         27 |
++----+-------+---------+-----------------+--------+------+------------+
+5 rows in set (0.00 sec)
+
+mysql> alter table employee add branch_location varchar(50);
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from employee;
++----+-------+---------+-----------------+--------+------+------------+-----------------+
+| id | name  | profile | email           | salary | age  | experience | branch_location |
++----+-------+---------+-----------------+--------+------+------------+-----------------+
+|  1 | rani  | dev     | rani@gmail.com  |  11000 |   43 |         27 | NULL            |
+|  2 | raj   | test    | raj@gmail.com   |  21000 |   33 |         17 | NULL            |
+|  3 | radha | test    | radha@gmail.com |  26000 |   38 |         21 | NULL            |
+|  4 | raj   | dev     | raj12@gmail.com |  51000 |   32 |         12 | NULL            |
+|  5 | john  | dev     | john@gmail.com  |  51000 |   39 |         27 | NULL            |
++----+-------+---------+-----------------+--------+------+------------+-----------------+
+5 rows in set (0.00 sec)
+
+mysql> select sum(salary) from employee;
++-------------+
+| sum(salary) |
++-------------+
+|      160000 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select max(salary) from employee;
++-------------+
+| max(salary) |
++-------------+
+|       51000 |
++-------------+
+1 row in set (0.04 sec)
+mysql> select avg(experience) from employee;
++-----------------+
+| avg(experience) |
++-----------------+
+|         20.8000 |
++-----------------+
+1 row in set (0.01 sec)
+
+mysql> select name from employee where salary=(select max(salary)from employee);
++------+
+| name |
++------+
+| raj  |
+| john |
++------+
+
+mysql> select name from employee where salary=(select min(salary)from employee);
++------+
+| name |
++------+
+| rani |
++------+
+1 row in set (0.00 sec)
+
+select count(id) from employee;
++-----------+
+| count(id) |
++-----------+
+|         5 |
++-----------+
+
+1 row in set (0.00 sec)
+mysql> select * from employee where profile='tech'and salary>=25000;
+Empty set (0.00 sec)
+
+mysql> update employee set profile='support' where name='radha';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from employee;
++----+-------+---------+-----------------+--------+------+------------+-----------------+
+| id | name  | profile | email           | salary | age  | experience | branch_location |
++----+-------+---------+-----------------+--------+------+------------+-----------------+
+|  1 | rani  | dev     | rani@gmail.com  |  11000 |   43 |         27 | NULL            |
+|  2 | raj   | test    | raj@gmail.com   |  21000 |   33 |         17 | NULL            |
+|  3 | radha | support | radha@gmail.com |  26000 |   38 |         21 | NULL            |
+|  4 | raj   | dev     | raj12@gmail.com |  51000 |   32 |         12 | NULL            |
+|  5 | john  | dev     | john@gmail.com  |  51000 |   39 |         27 | NULL            |
++----+-------+---------+-----------------+--------+------+------------+-----------------+
+5 rows in set (0.00 sec)
+
+mysql> select salary from employee order by salary desc limit 1 offset 1;
++--------+
+| salary |
++--------+
+|  51000 |
++--------+
+1 row in set (0.00 sec)
+
+mysql> select avg(salary) from employee where profile='dev';
++--------------------+
+| avg(salary)        |
++--------------------+
+| 37666.666666666664 |
++--------------------+
+1 row in set (0.01 sec)
+
+mysql> select name,salary from employee order by experience asc limit 1;
++------+--------+
+| name | salary |
++------+--------+
+| raj  |  51000 |
++------+--------+
+1 row in set (0.00 sec)
+
+mysql> select name from employee where age=(select min(age) from employe) order by salary desc limit 1;
++------+
+| name |
++------+
+| john |
++------+
+1 row in set (0.00 sec)
