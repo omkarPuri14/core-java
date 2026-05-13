@@ -1,0 +1,66 @@
+CREATE TABLE employee (emp_id INT,emp_name VARCHAR(50),department VARCHAR(50),city VARCHAR(50),salary INT);
+
+
+INSERT INTO employee(emp_id,emp_name,department,city,salary) VALUES(1, 'Amit', 'IT', 'Pune', 50000),(2, 'Rahul', 'IT', 'Mumbai', 60000),(3, 'Sneha', 'HR', 'Pune', 40000),(4, 'Pooja', 'HR', 'Mumbai', 45000),(5, 'Rohit', 'IT', 'Pune', 70000),(6, 'Neha', 'Sales', 'Delhi', 30000),(7, 'Karan', 'Sales', 'Delhi', 35000);
+
+mysql> select * from employee;
++--------+----------+------------+--------+--------+
+| emp_id | emp_name | department | city   | salary |
++--------+----------+------------+--------+--------+
+|      1 | Amit     | IT         | Pune   |  50000 |
+|      2 | Rahul    | IT         | Mumbai |  60000 |
+|      3 | Sneha    | HR         | Pune   |  40000 |
+|      4 | Pooja    | HR         | Mumbai |  45000 |
+|      5 | Rohit    | IT         | Pune   |  70000 |
+|      6 | Neha     | Sales      | Delhi  |  30000 |
+|      7 | Karan    | Sales      | Delhi  |  35000 |
++--------+----------+------------+--------+--------+
+
+mysql> select department,count(*) As total_emp from employee group by department;
++------------+-----------+
+| department | total_emp |
++------------+-----------+
+| IT         |         3 |
+| HR         |         2 |
+| Sales      |         2 |
++------------+-----------+
+3 rows in set (0.01 sec)
+
+mysql> select department,sum(salary) As total_salary from employee group by department;
++------------+--------------+
+| department | total_salary |
++------------+--------------+
+| IT         |       180000 |
+| HR         |        85000 |
+| Sales      |        65000 |
++------------+--------------+
+3 rows in set (0.00 sec)
+
+mysql> select department,city,count(*) As total from employee group by department,city;
++------------+--------+-------+
+| department | city   | total |
++------------+--------+-------+
+| IT         | Pune   |     2 |
+| IT         | Mumbai |     1 |
+| HR         | Pune   |     1 |
+| HR         | Mumbai |     1 |
+| Sales      | Delhi  |     2 |
++------------+--------+-------+
+5 rows in set (0.00 sec)
+
+mysql> select department,count(*) As total_emp from employee group by department having count(*)>2;
++------------+-----------+
+| department | total_emp |
++------------+-----------+
+| IT         |         3 |
++------------+-----------+
+1 row in set (0.00 sec)
+
+mysql> select department,sum(salary) As total_salary from employee where city='pune' group by department having sum(salary)>50000;
++------------+--------------+
+| department | total_salary |
++------------+--------------+
+| IT         |       120000 |
++------------+--------------+
+
+
