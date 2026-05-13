@@ -4,13 +4,15 @@ public class Day4 {
 	
 	    public static void main(String[] args) {
 	        String name = "omkar@123";
+
+			char[] charArray = name.toCharArray();
 	        
 	        StringBuilder alphabets = new StringBuilder();
 	        StringBuilder symbols = new StringBuilder();
 	        StringBuilder numbers = new StringBuilder();
 
-	        for (int i = 0; i < name.length(); i++) {
-	            char ch = name.charAt(i);
+	        for ((char ch : charArray) {
+	          
 
 	            if (Character.isLetter(ch)) {
 	                alphabets.append(ch);
