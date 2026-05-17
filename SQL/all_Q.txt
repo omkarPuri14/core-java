@@ -1,0 +1,40 @@
+create table department(deptID int primary key , deptName varchar(40));
+
+create table employee(empId int PRIMARY KEY, name varchar(50),deptId int,FOREIGN KEY(deptID));
+
+insert into department(deptId,deptNamevalues(1,'HR'),(2,'sales'),(3,'marketing'),(4,'finance'),(5,NULL);
+
+insert into employee(empId,name,deptId)values(1001,'om',1),(1002,'Rahul',2),(1003,'sahil',3),(1004,'ram',5),(1005,'vraj,4);
+
+ insert into employee(empId,name,deptId)values(1007,'priti',1),(1006,'shyam',2);
+
+SELECT employee.name, department.deptName FROM employee INNER JOIN Department ON employee.deptId = department.deptId;
+
+SELECT employee.name, department.deptName FROM employee LEFT JOIN Department ON employee.deptId = department.deptId;
+
+select department,sum(salary) As total_salary from employee group by department;
+
+ select department,count(*) As total_emp from employee group by department;
+
+delete from employe where emp_id=4;
+
+select * from employee where emp_id = 101 AND name'rahul';
+
+ALTER TABLE employee ADD country varchar(50);
+
+ALTER TABLE employee DROP COLUMN country;
+
+ ALTER TABLE employee RENAME TO employeeRecord;
+
+select * from employeerecord ORDER BY salary ASC;
+
+FROM Employeerecord LIMIT 3;
+
+SELECT name AS employee_name FROM employeerecord;
+    
+
+
+
+
+
+
